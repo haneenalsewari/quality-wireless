@@ -255,6 +255,15 @@ function PrivacyPolicy() {
   );
 }
 
+function trackEvent(eventName, eventDetails = {}) {
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", eventName, {
+      ...eventDetails,
+      transport_type: "beacon",
+    });
+  }
+}
+
 function App() {
   useEffect(() => {
     const revealElements = document.querySelectorAll(".reveal");
@@ -299,7 +308,16 @@ function App() {
           <a href="#contact">Contact</a>
         </nav>
 
-        <a href="tel:3142560719" className="header-call">
+        <a
+          href="tel:3142560719"
+          className="nav-call"
+          onClick={() =>
+            trackEvent("call_click", {
+              event_category: "lead",
+              event_label: "Header Call Now",
+            })
+          }
+        >
           Call Now
         </a>
       </header>
@@ -317,7 +335,16 @@ function App() {
           </p>
 
           <div className="hero-actions">
-            <a href="tel:3142560719" className="btn btn-primary">
+            <a
+              href="tel:3142560719"
+              className="btn primary"
+              onClick={() =>
+                trackEvent("call_click", {
+                  event_category: "lead",
+                  event_label: "Hero Call Button",
+                })
+              }
+            >
               Call (314) 256-0719
             </a>
 
@@ -326,6 +353,12 @@ function App() {
               className="btn btn-map"
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                trackEvent("directions_click", {
+                  event_category: "lead",
+                  event_label: "Hero Get Directions",
+                })
+              }
             >
               Get Directions
             </a>
@@ -435,7 +468,16 @@ function App() {
           type. Call or stop by for a quote before starting your repair.
         </p>
 
-        <a href="tel:3142560719" className="btn btn-primary">
+        <a
+          href="tel:3142560719"
+          className="btn btn-primary"
+          onClick={() =>
+            trackEvent("call_click", {
+              event_category: "lead",
+              event_label: "Repair Quote Call Button",
+            })
+          }
+        >
           Call for a Quote
         </a>
       </section>
@@ -505,6 +547,12 @@ function App() {
               target="_blank"
               rel="noreferrer"
               aria-label="Quality Wireless Instagram"
+              onClick={() =>
+                trackEvent("social_click", {
+                  event_category: "engagement",
+                  event_label: "About Instagram",
+                })
+              }
             >
               <InstagramIcon />
             </a>
@@ -514,6 +562,12 @@ function App() {
               target="_blank"
               rel="noreferrer"
               aria-label="Quality Wireless Facebook"
+              onClick={() =>
+                trackEvent("social_click", {
+                  event_category: "engagement",
+                  event_label: "About Facebook",
+                })
+              }
             >
               <FacebookIcon />
             </a>
@@ -557,7 +611,17 @@ function App() {
         <div className="contact-card reveal delay-one">
           <div>
             <strong>Phone</strong>
-            <a href="tel:3142560719">(314) 256-0719</a>
+            <a 
+              href="tel:3142560719"
+              onClick={() =>
+                trackEvent("call_click", {
+                  event_category: "lead",
+                  event_label: "Contact Phone Number",
+                })
+              }
+            >
+              (314) 256-0719
+            </a>
             <span>Call only, no texting</span>
           </div>
 
@@ -579,6 +643,12 @@ function App() {
               target="_blank"
               rel="noreferrer"
               aria-label="Quality Wireless Instagram"
+              onClick={() =>
+                trackEvent("social_click", {
+                  event_category: "engagement",
+                  event_label: "Instagram",
+                })
+              }
             >
               <InstagramIcon />
             </a>
@@ -587,6 +657,12 @@ function App() {
               target="_blank"
               rel="noreferrer"
               aria-label="Quality Wireless Facebook"
+              onClick={() =>
+                trackEvent("social_click", {
+                  event_category: "engagement",
+                  event_label: "Facebook",
+                })
+              }
             >
               <FacebookIcon />
             </a>
@@ -597,6 +673,12 @@ function App() {
             className="btn btn-primary full-width"
             target="_blank"
             rel="noreferrer"
+            onClick={() =>
+              trackEvent("directions_click", {
+                event_category: "lead",
+                event_label: "Contact Open in Maps",
+              })
+            }
           >
             Open in Maps
           </a>
@@ -617,6 +699,12 @@ function App() {
           className="website-form reveal delay-one"
           action="https://formspree.io/f/mojbovjb"
           method="POST"
+          onSubmit={() =>
+            trackEvent("website_form_submit", {
+              event_category: "lead",
+              event_label: "Website Design Form",
+            })
+          }
         >
           <input
             type="hidden"
@@ -675,7 +763,17 @@ function App() {
         </div>
 
         <div className="footer-links">
-          <a href="tel:3142560719">(314) 256-0719</a>
+          <a 
+            href="tel:3142560719"
+            onClick={() =>
+              trackEvent("call_click", {
+                event_category: "lead",
+                event_label: "Footer Phone Number",
+              })
+            }
+          >
+            (314) 256-0719
+          </a>
           <span>Call only, no texting</span>
           <span>442 Bates St, St. Louis, MO 63111</span>
 
@@ -685,6 +783,12 @@ function App() {
               target="_blank"
               rel="noreferrer"
               aria-label="Quality Wireless Instagram"
+              onClick={() =>
+                trackEvent("social_click", {
+                  event_category: "engagement",
+                  event_label: "Instagram",
+                })
+              }
             >
               <InstagramIcon />
             </a>
@@ -693,6 +797,12 @@ function App() {
               target="_blank"
               rel="noreferrer"
               aria-label="Quality Wireless Facebook"
+              onClick={() =>
+                trackEvent("social_click", {
+                  event_category: "engagement",
+                  event_label: "Facebook",
+                })
+              }
             >
               <FacebookIcon />
             </a>
@@ -700,7 +810,16 @@ function App() {
         </div>
       </footer>
 
-      <a href="tel:3142560719" className="mobile-call">
+      <a 
+        href="tel:3142560719" 
+        className="mobile-call"
+        onClick={() =>
+          trackEvent("call_click", {
+            event_category: "lead",
+            event_label: "Mobile Call Button",
+          })
+        }
+      >
         Call Quality Wireless
       </a>
     </main>
