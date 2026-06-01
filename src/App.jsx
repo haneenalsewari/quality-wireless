@@ -337,7 +337,7 @@ function App() {
           <div className="hero-actions">
             <a
               href="tel:3142560719"
-              className="btn primary"
+              className="btn btn-primary"
               onClick={() =>
                 trackEvent("call_click", {
                   event_category: "lead",
