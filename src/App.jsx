@@ -482,6 +482,37 @@ function App() {
         </a>
       </section>
 
+      <section className="financing-section reveal">
+        <div className="financing-card">
+          <div className="financing-content">
+            <p className="eyebrow">Lease-to-own program</p>
+            <h2>Lease now, buy later.</h2>
+            <p>
+              Quality Wireless offers access to Acima Leasing for eligible customers
+              who want a lease-to-own option for phones and computers.
+            </p>
+          </div>
+
+          <a
+            href="https://ams.acima.com/discover/new?location_guid=loca-db79c753-a061-415d-9692-cff33f49e5f9&utm_source=web-banner&utm_medium=merchant&utm_campaign=mktg-lp&utm_content=rven2300X600"
+            target="_blank"
+            rel="noreferrer"
+            className="financing-banner"
+            onClick={() =>
+              trackEvent("financing_click", {
+                event_category: "lead",
+                event_label: "Acima Leasing Banner",
+              })
+            }
+          >
+            <img
+              src="https://s3.us-west-2.amazonaws.com/marketing.acimacredit.com/Acima-Web-Banners/RV-EN2/RVEN2300X600.png?utm_source=web-banner&utm_medium=merchant&utm_campaign=mktg-lp&utm_content=rven2300X600"
+              alt="Acima Leasing lease-to-own program"
+            />
+          </a>
+        </div>
+      </section>
+
       <section className="split-section" id="why-us">
         <div className="split-content reveal">
           <p className="eyebrow">Why choose Quality Wireless</p>
